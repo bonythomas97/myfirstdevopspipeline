@@ -17,11 +17,11 @@ pipeline {
         }
 
         stage('Deploy') {
-            steps {
-                echo 'Deploying container...'
-                sh '''
-                    docker rm -f mywebapp || true
-                    docker run -d --name mywebapp -p 8080:80 mywebapp:latest
+    steps {
+        echo 'Deploying container...'
+        sh '''
+            docker rm -f mywebapp || true
+            docker run -d --name mywebapp -p 8090:80 mywebapp:latest
                 '''
             }
         }
